@@ -1,0 +1,41 @@
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm, mathtools}
+%\usepackage{hyperref}
+\usepackage{color}
+\usepackage{jheppub}
+\usepackage[T1]{fontenc} % if needed
+
+%\linespread{1.0}
+%\setlength{\parindent}{0em}
+%\setlength{\parskip}{0.8em}
+
+\title{\textbf{Eigenstate Thermalization Hypothesis}}
+\author{Aditya Vijaykumar}
+\affiliation{International Centre for Theoretical Sciences, Bengaluru, India.}
+\emailAdd{aditya.vijaykumar@icts.res.in}
+
+\begin{document}
+\maketitle
+\section{Motivation}
+Lets look at unitary thermalization. One has a closed quantum system in a \textit{big} box, \textit{eg}. box of gas. Let the state of the system be described by 
+$$\ket{\psi(t)} = \exp(-i H t/\hbar ) \ket{\psi_0}$$ Quantum systems in general would look thermal at large times $t$. ETH is an explanation of this fact.
+
+What does \textit{look thermal} mean? The state we are considering is a pure state, but if one considers measuring an observable at large times, the claim is that it would look the same as it would when measured in the Gibbs ensemble.
+
+Lets say that $\ket{\psi_0} = \sum_{k} c_k \ket{k}$ and $H\ket{k} = E_k \ket{k}$. An observable $A$ is to be measured. Let $A(t)$ be the expectation value of the observable at time $t$.
+$$A(t)  = \sum_{k,l}c_k c_l^* \bra{l}A \ket{k}$$ We expect that $A(t)$ will evolve to an equilibrium value and after waiting for some time and according to the Poincare recurrence theorem, $A(t)$ will come back to its initial value. To calculate the equilibrium value, we just take the time average of $A(t)$,
+$$\bar{A}=\lim\limits_{t \rightarrow \infty} \frac{1}{T}\int_{0}^{T} A(t) dt = \sum_{k} A_{kk}\abs{c_k}^2$$
+\textcolor{red}{Do the integration - oscillatory terms cancel}
+Suppose $\ket{\psi_0}$ is a superposition of states with not very different energies, and make the following hypothesis,\\
+\textbf{Hypothesis 1} - For $E_k \in [E-\Delta, E]$, $A_{kk} = A^{(E,\Delta)} + \delta A_{kk}$, where $\delta A_{kk}$ is small.
+
+Substituting into $\bar{A}$, we get $\bar{A} = A^{(E,\Delta)}$. One can also calculate a corresponding microcanonical average from statistical mechanics, $\expval{A} = \frac{1}{N}\sum_{k} A_{kk}= A^{(E,\Delta)}$. Hence the time average is equivalent to the thermal average if \textbf{Hypothesis 1} is true. This means that the system will behave like what one would expect from statistical physics. 
+
+But the equilibrium value is not all that we need. We would also like to make a statement about the fluctuations at large times, and we would expect them to be small. This would be given by the quantity \textcolor{red}{Do the calculation}$$(A(t) - \bar{A})^2 = \sum_{k\ne l; E_k, E_l \in [E-\Delta,E]} \abs{c_k}^2 \abs{c_k}^2 \abs{A_{kl}}^2 \ll \bar{A}^2$$
+\end{document}
