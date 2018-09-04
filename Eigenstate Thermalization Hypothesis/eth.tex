@@ -29,7 +29,7 @@ $$\ket{\psi(t)} = \exp(-i H t/\hbar ) \ket{\psi_0}$$ Quantum systems in general 
 What does \textit{look thermal} mean? The state we are considering is a pure state, but if one considers measuring an observable at large times, the claim is that it would look the same as it would when measured in the Gibbs ensemble.
 
 Lets say that $\ket{\psi_0} = \sum_{k} c_k \ket{k}$ and $H\ket{k} = E_k \ket{k}$. An observable $A$ is to be measured. Let $A(t)$ be the expectation value of the observable at time $t$.
-$$A(t)  = \sum_{k,l}c_k c_l^* \bra{l}A \ket{k}$$ We expect that $A(t)$ will evolve to an equilibrium value and after waiting for some time and according to the Poincare recurrence theorem, $A(t)$ will come back to its initial value. To calculate the equilibrium value, we just take the time average of $A(t)$,
+$$A(t)  = \sum_{k,l}c_k c_l^* \bra{l}A \ket{k}$$ \textcolor{red}{Some error here}. We expect that $A(t)$ will evolve to an equilibrium value and after waiting for some time and according to the Poincare recurrence theorem, $A(t)$ will come back to its initial value. To calculate the equilibrium value, we just take the time average of $A(t)$,
 $$\bar{A}=\lim\limits_{t \rightarrow \infty} \frac{1}{T}\int_{0}^{T} A(t) dt = \sum_{k} A_{kk}\abs{c_k}^2$$
 \textcolor{red}{Do the integration - oscillatory terms cancel}
 Suppose $\ket{\psi_0}$ is a superposition of states with not very different energies, and make the following hypothesis,\\
