@@ -29,7 +29,7 @@ $$\ket{\psi(t)} = \exp(-i H t/\hbar ) \ket{\psi_0}$$ Quantum systems in general 
 What does \textit{look thermal} mean? The state we are considering is a pure state, but if one considers measuring an observable at large times, the claim is that it would look the same as it would when measured in the Gibbs ensemble.
 
 Lets say that $\ket{\psi_0} = \sum_{k} c_k \ket{k}$ and $H\ket{k} = E_k \ket{k}$. An observable $A$ is to be measured. Let $A(t)$ be the expectation value of the observable at time $t$.
-$$A(t)  = \sum_{k,l}c_k c_l^* \bra{l}A \ket{k}$$ \textcolor{red}{Some error here}. We expect that $A(t)$ will evolve to an equilibrium value and after waiting for some time and according to the Poincare recurrence theorem, $A(t)$ will come back to its initial value. To calculate the equilibrium value, we just take the time average of $A(t)$,
+$$A(t)  = \sum_{k,l}c_k c_l^* \exp(-i/\hbar (E_k - E_l)t ) \bra{l}A \ket{k}$$ \textcolor{red}{Some error here}. We expect that $A(t)$ will evolve to an equilibrium value and after waiting for some time and according to the Poincare recurrence theorem, $A(t)$ will come back to its initial value. To calculate the equilibrium value, we just take the time average of $A(t)$,
 $$\bar{A}=\lim\limits_{t \rightarrow \infty} \frac{1}{T}\int_{0}^{T} A(t) dt = \sum_{k} A_{kk}\abs{c_k}^2$$
 \textcolor{red}{Do the integration - oscillatory terms cancel}
 Suppose $\ket{\psi_0}$ is a superposition of states with not very different energies, and make the following hypothesis,\\
@@ -37,5 +37,28 @@ Suppose $\ket{\psi_0}$ is a superposition of states with not very different ener
 
 Substituting into $\bar{A}$, we get $\bar{A} = A^{(E,\Delta)}$. One can also calculate a corresponding microcanonical average from statistical mechanics, $\expval{A} = \frac{1}{N}\sum_{k} A_{kk}= A^{(E,\Delta)}$. Hence the time average is equivalent to the thermal average if \textbf{Hypothesis 1} is true. This means that the system will behave like what one would expect from statistical physics. 
 
-But the equilibrium value is not all that we need. We would also like to make a statement about the fluctuations at large times, and we would expect them to be small. This would be given by the quantity \textcolor{red}{Do the calculation}$$(A(t) - \bar{A})^2 = \sum_{k\ne l; E_k, E_l \in [E-\Delta,E]} \abs{c_k}^2 \abs{c_k}^2 \abs{A_{kl}}^2 \ll \bar{A}^2$$
+But the equilibrium value is not all that we need. We would also like to make a statement about the fluctuations at large times, and we would expect them to be small. This would be given by the quantity \textcolor{red}{Do the calculation}$$(A(t) - \bar{A})^2 = \sum_{k\ne l; E_k, E_l \in [E-\Delta,E]} \abs{c_k}^2 \abs{c_k}^2 \abs{A_{kl}}^2 \ll \abs{\bar{A}^2}$$
+
+We make another hypothesis,\\
+\textbf{Hypothesis 2} - For $E-\Delta \le E_k, E_l \le E$ then $A_{k,l} \ll \abs{A}^2$ (Typically one expects $A_{k,l} \sim \order{\frac{1}{\sqrt{D}}}$ \textit{ie.} exponentially small in the number of particles.
+
+\textbf{System with Hamiltonian $H$ satisfies ETH if the two hypotheses above are true foir all relevant energies, eigenstates and observables. }
+
+\section{Special Cases}
+
+\begin{itemize}
+	\item Finite dimensional many body system
+	
+	Consider spin chain having $n$ sites. Pick a \textit{small} subsytem $S$ and look at observables only in the subsystem. The remaining sites will act like a bath ($B$)for the subsystem.
+	
+	Consider a Hamiltonian $H$ which is finite range (local in the condensed matter sense). $$A = A_S \otimes I_B$$
+	Hence, if ETH is true for all local observables,
+	$$\expval{A_{kk}} = \bra{E_l}A_S \otimes I_B \ket{E_k} \sim \expval{A}_{micro}$$
+	
+	So if we look at the subsystem only, we will see that the expectation values are thermal. Compare this with the fact that if one measures the entangled state in a subsystem only, the expectation values will be thermal  \textcolor{red}{verify}. 
+	
+	This is some instance of \textit{thermalization by entanglement}. There is no theorem that tells us for which systems ETH holds and for which it doesn't. The obvious example is when one does not have any interaction between the constituents of the system.
+\end{itemize}
+
+Can one replace the microcanonical ensemble with the canonical ensemble? If $H$ is translation invariant and is finite range and there is no phase transition (unique phase at that particular energy), then we have equivalence of ensembles.
 \end{document}
