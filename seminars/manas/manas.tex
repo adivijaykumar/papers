@@ -1,0 +1,98 @@
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm, mathtools}
+%\usepackage{hyperref}
+\usepackage{color}
+\usepackage{jheppub}
+\usepackage[T1]{fontenc} % if needed
+
+% My Documents
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bes}{\begin{equation*}}
+\newcommand{\ees}{\end{equation*}}
+\newcommand{\bea}{\begin{flalign*}}
+\newcommand{\eea}{\end{flalign*}}
+
+\def\a{\alpha}
+\def\b{\beta}
+\def\g{\gamma}
+\def\s{\sigma}
+%\linespread{1.0}
+%\setlength{\parindent}{0em}
+%\setlength{\parskip}{0.8em}
+
+\title{\textbf{Aspects of non-equilibrium Physics}}
+\author{Aditya Vijaykumar}
+\affiliation{International Centre for Theoretical Sciences, Bengaluru, India.}
+\emailAdd{aditya.vijaykumar@icts.res.in}
+
+\begin{document}
+\maketitle
+
+\section{Introduction and Motivation}
+Non-equilibrium systems can be :-
+\begin{itemize}
+	\item \textbf{Open} - Interactions with the \textit{environment} are considered.
+	\item \textbf{Closed} - the system is considered to be isolated
+	\item \textbf{Quenched} - parameters of the Hamiltonian suddenly so that the system as a whole is out of equilibrium
+\end{itemize}
+Let's look at examples of classical, semi-classical and quantum non-equilibrium systems.
+\section{Classical non-equilibrium Systems} 
+
+Classical non-equilibrium systems can be classifield as follows :-
+\begin{itemize}
+	\item \textbf{Integrable Models} - The most famous example is the \textit{Calogero Family of Models}, with a Hamiltonian given by,
+	\begin{equation*}
+	H(p,q) = \dfrac{1}{2}\sum_{n} (p_n^2 + \omega^2 q_n^2) + g^2 \sum_{m,n ; m \ne n }\dfrac{1}{(q_n - q_m)^2}
+	\end{equation*}
+	The \textit{Discrete non-linear Schrodinger Equation} is another example of an classical integrable system. The non-linear Schrodinger Equation is given by,
+	\begin{equation*}
+	i \pdv{\psi}{t} = - \pdv[2]{\psi}{x} + g \abs{\psi }^2 \psi
+	\end{equation*}
+	which can be thought of being derived from the Hamiltonian,
+	\begin{equation*}
+	H = \int \qty[\dfrac{1}{2} \qty(\pdv{\psi}{x})^2 + \dfrac{g}{2} \abs{\psi}^4] dx
+	\end{equation*}
+	One encounters these equations in the models for cold atomic gases or non-linear optics.
+	\item \textbf{Non-integrable Models} - One can discretize the above non-linear Schrodinger equation, and get an expression for the Hamiltonian as follows,
+	\begin{equation*}
+	H = \sum_{j=0}^{N-1} \qty[\dfrac{1}{2m} \abs{\psi_{j+1} - \psi_j}^2 + \dfrac{1}{2} \abs{\psi_{j}}^4]
+	\end{equation*}
+	giving the equations of motion,
+	\begin{align*}
+	i \pdv{\psi_j}{t} = -\dfrac{1}{2m } \Delta \psi_j + g \abs{\psi_j}^2
+	\end{align*}
+	which is a non-integrable system.
+	
+	\item \textbf{Classical Field Theoretic Models} - The nonlinear schrodinger equation can be reduced (in something called the \textit{reductive perturbation expansion}) to a minimal model of the KdV equation. 
+	\begin{equation*}
+	u_t = -\partial_x (\alpha u^2 + \beta u_{xx}) 
+	\end{equation*} The solution to $ \beta=0 $ case is,
+	\begin{equation*}
+	u(x,t) = U_0(x - u(x,t) t)
+	\end{equation*}
+	 So if we start out with lets say a Lorentzian profile, the $ u^2  $ term will cause the profile to curve to the right and steepen. But the derivative term will now convert the steepening to oscillations.
+\end{itemize}
+
+\section{Quantum non-equilibrium Systems}
+\begin{itemize}
+	\item \textbf{Quantum Lattice Models (Incommensurate Models)} - Consider the following Hamiltonian,
+	\begin{equation*}
+	H = \sum_i (a_i^\dagger a_{i+1} + \text{h.c}) +  \sum_i \omega_i (a_i^\dagger a_{i})
+	\end{equation*}
+	Lets say one starts with $ \omega_i = \lambda \cos(2 \pi b i), b = 4/3 $. The model basically repeats itself after every three steps in $ i $, ie.$ i \rightarrow i + 3 $. Under this conditions this system is called a ballistic system. But if $ b = \dfrac{\sqrt{5} -1}{2} $ (golden mean), this model never repeats itself. Such models are called incommensurate models. For $ \lambda < 1 $, these systems behave ballistic, but when $ \lambda > 1 $, the system is localized. The current goes down. When $ \lambda = 1 $, it's called the critical condition. Just by a model where there are no real interactions, we see a lot of different phases with respect to the parameter $ \lambda $.
+	\item \textbf{Hybrid Quantum Systems} - Systems made of fermionic and bosonic degrees of freedom. Let's say we have a mesoscopic systems (with only a source and sink) and two quantum dots in between. Lets say one couples this fermionic system to a bosonic system. We ask -\textit{ How do the bosonic degrees of freedom affect the fermionic current and vice versa?}
+	\item \textbf{Designing Quantum Hamiltonian Systems} - Open Quantum Phase Transitions, Open Quantum Spin Chains, Property of non-Hermitian systems, emergent phenomena, Quantum Devices, understanding dark states
+\end{itemize}
+
+\section{Semi-classical non-equilibrium Systems}
+PDEs due to cold atoms, multi component gases etc. fall under this category. We can also have systems with are inherently quantum in their large $ N $ limit.
+
+
+\end{document}

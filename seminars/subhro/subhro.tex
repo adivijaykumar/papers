@@ -1,0 +1,192 @@
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm, mathtools}
+%\usepackage{hyperref}
+\usepackage{color}
+\usepackage{jheppub}
+\usepackage[T1]{fontenc} % if needed
+
+% My Documents
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bes}{\begin{equation*}}
+\newcommand{\ees}{\end{equation*}}
+\newcommand{\bea}{\begin{flalign*}}
+\newcommand{\eea}{\end{flalign*}}
+
+\def\a{\alpha}
+\def\b{\beta}
+\def\g{\gamma}
+\def\s{\sigma}
+%\linespread{1.0}
+%\setlength{\parindent}{0em}
+%\setlength{\parskip}{0.8em}
+
+\title{\textbf{Correlated Quantum Many-Body Systems}}
+\author{Aditya Vijaykumar}
+\affiliation{International Centre for Theoretical Sciences, Bengaluru, India.}
+\emailAdd{aditya.vijaykumar@icts.res.in}
+
+\begin{document}
+\maketitle
+
+\section{What is the problem?}
+Want to understand and describe the propertiees of a quantum many body system with many moving parts. 
+
+Interested in describing the properties of a system: Mostly inclined towards {\bf linear response properties}. For example, the response of current through a resistor ($V = I R$). These can give us unperrturbed properties of a system.
+
+\section{What are the moving parts: The constitutents of the system}
+These can be ions, electons, stars, fluids, etc. We describe them using some effective theory, obviously not at the molecular level. This again, depends on the experiment we do, i.e, at what {\bf energy we probe the system}. These degrees of freedom are effective degrees of freedom. Once we have described the constituents, we need to understand the physics of them, i.e, the {\bf effective ``microscropic" description}. 
+\subsection{Physics of few constituents}
+One question that one can ask: is classical mechanics enough to describe the system or does one need to use quantum mechanics. If for example is talking about sand particles one can do with CM. But for an elecron in a wire, one needs to essentially solve some QM.
+\begin{itemize}
+	\item {\bf CM}: Works by stating the position and momentum at any time and solve Newton's laws. For multiple particles, one can solve multiple equations. However in principle one can choose to follow one of the particle and understand it alone. 
+	
+	\item {\bf QM}: In QM superposition and {\bf entanglement} doesn't allow us to understandpars of the system individually. This is a major departure from CM. Entangement doesn't have any classical analogue.\\
+	{\bf Example:} Consider a state, 
+	\be
+	\ket{\psi} = \frac{\ket{\uparrow \downarrow} + \ket{ \downarrow \uparrow}}{\sqrt{2}}
+	\ee
+	We define the density matrix as $\rho = \ket{\psi} \bra{\psi}$. The reduced density matrix is obtained by integrating out one spin,
+	\be
+	\rho_{red}^{(1)} = \braket{\uparrow|\rho|\uparrow_2} + \braket{\downarrow|\rho|\downarrow_2}
+	\ee
+	We define something called entanglement entropy $S_{ent}=-\mbox{Tr}[\rho_{red}^{(1)} \log\rho_{red}^{(1)}  ]$. If EE is zero then it's not an entangled state. Here it is zero because $\psi$ is  a tensor product state $\psi_1 \otimes \psi_2$. 
+	
+	To understand the dynamics of a system we study the following related to that. Some of them include
+	
+	\subsubsection{Symmetries:} Tells aout the ``isotropies" in a system. For example,
+	\be
+	T_{\vec a}\ket{\vec x} = \ket{\vec x + \vec a}
+	\ee
+	This operator preserves the probabilities, and thus is unitary. It's the translation operator. Say a hamiltonian has a translational symmetry, then one can't really distinguish between $ \ket{x} $ and $ \ket{x + a} $. Thus,
+	\begin{equation*}
+	[H, T_{\vec a}] = 0 \implies T_a^{\dagger} H T_a = H
+	\end{equation*}
+	This brings a restriction n the dynamics of a system. In this particular case, it just means that the hamiltonian remains invariant under translations.	
+
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 			Ising Model
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ising Model}
+The constituents in this system are spin $1/2$ particles. We have $N$ such spin half particles here. The $ i^{th} $ spin half is descrbed by two states $\ket{\sigma_i} \equiv \ket{1}, \ket{0} \equiv \ket{\uparrow}, \ket{ \downarrow } $. These are often called {\bf qbits}. The basis stats are spanned by objects like, 
+\begin{equation*}
+\ket{\sigma_1 \sigma_2 \cdots \sigma_n}
+\end{equation*}
+Given this one can construct all operators in the system
+\begin{equation*}
+A_i = \sum_{\alpha \beta} A^{\alpha \beta}_i \ket{\alpha_i} \bra{\beta_i}
+\end{equation*}
+The operators above are local (depends on a particular site), and the claim is that these operators can be generated using the Pauli matrices $1, \sigma_x, \sigma_y, \sigma_z$, which satisfy,
+\be
+[\sigma_i^{\alpha}, \sigma_j^{\beta}] = 2 i \delta_{ij} \epsilon^{\alpha \beta \gamma}\sigma_i^{\gamma} 
+\ee
+We now describe the symmetries of the system, (no matter what we choose we have to satisfy $S^{\dagger} H S = H$)
+\begin{itemize}
+	\item One dimensional Translation: We want translation symmetry in units of $n \in$ Integer. 	These can be realized in a lattice with lattice constant $a$. 
+	
+	\item Given by the operator $X = \prod_i \s_i^X$. What does this do? It's essentially a rotation in spin space about the $X$ axis by $\frac{\pi}{2}$. We have the Pauli matrices as, 
+	\begin{equation*}
+	\s_x = \left( \begin{array}{cc}
+	1 & 0 \\
+	0 & 1
+	\end{array}
+	 \right) \implies \s^x \ket{\uparrow} = \ket{\downarrow}
+	\end{equation*}
+	This also gives, 
+	\begin{equation*}
+	\s^x \s^z \s^x = - \s^z
+	\end{equation*}
+	We can also compute for spins at different sites, 
+	\begin{equation*}
+	X^{\dagger} \s_i^z \s_j^z X = 
+		X^{\dagger} \s_i^z X X^{\dagger} \s_j^z X  = \s_i^z \s_j^z
+	\end{equation*}
+	Thus to make it commute with the Hamiltonian we either choose an even number of $\s_z$ or work with $\s_x$. 
+\end{itemize}
+One Hamiltonian that respects all the symmetries of the system, 
+\begin{equation*}
+H = - J \sum_i \s_i^z \s_{i + 1}^z - \Gamma \sum_i \s_i^x
+\end{equation*}
+We are interested in determining the ground state and low energy properties of the system. The numbers $J$ and $ \Gamma $ are called coupling constants. For our case we take them to be positive. We vary the constant $\Gamma/J$  and ask how the ground state energy changes.\\ \\
+ In the limit where $J \to 0$, we have a non-interacting Hamiltonian,
+ \be
+ H = \sum_i \s_i^x
+ \ee
+The two states having energy $+$ and $-$  in the $Z$ basis are repectively, 
+\begin{equation*}
+\ket{\leftarrow}_x \equiv \frac{\ket{\uparrow} - \ket{\downarrow}}{\sqrt{2}}, \quad 
+\ket{\rightarrow}_x \equiv\frac{\ket{\uparrow} + \ket{\downarrow}}{\sqrt{2}}
+\end{equation*}
+The ground state is,
+\be
+\ket{GS} = \ket{\rightarrow \rightarrow \cdots \rightarrow}
+\ee
+The energy of the ground state is, 
+\be
+E_{GS} = - \Gamma N
+\ee
+N being the number of spins. The first excited state is, 
+\begin{equation*}
+\ket{1}_{ex} = \ket{\rightarrow \rightarrow \cdots \underbrace{\leftarrow}_{i} \cdots \rightarrow} 
+\end{equation*}
+All the first excited states have the energy, 
+\be
+E_1 = E_{GS} + 2 \Gamma
+\ee
+
+
+We now ask the action of $\s^z$ on $\ket{\leftarrow}$ and $\ket{\rightarrow}$,
+\begin{equation*}
+\s^z \ket{\rightarrow} = \ket{\leftarrow}, \quad 
+\s^z \ket{\leftarrow} = \ket{\rightarrow}
+\end{equation*}
+
+Now we consider the action of the operator, 
+\begin{equation*}
+\s_i^z \s_{i+1}^z + \s_{i-1}^z \s_i^z 
+\end{equation*}
+This takes the first excited state in the equation above ($\ket{1_{ex}} \equiv \ket{i}$) to $\ket{i-1}$ or $\ket{i+1}$ (keeps the energy invariant). Thus the hamiltonian can be written as, 
+\begin{equation*}
+H = \sum_i \ket{i-1} \bra{i} + \ket{i+1}\bra{i}
+\end{equation*}
+In fourier space this becomes,
+\begin{equation*}
+\ket{k} = \frac{1}{\sqrt N} \sum_i e^{i k r_i} \ket{i}
+\end{equation*}
+These are the eigenstates of this Hamiltonian, an dit an be shown that, 
+\begin{equation*}
+H \ket{k} = E_k \ket{k} \implies E_k = E_1 - J \cos ka
+\end{equation*}
+For soft $k$, 
+\begin{equation*}
+E_k = (E_1 - J) + \frac{J a k^2}{2}
+\end{equation*}
+The first term is some shift, but the second one looks like an inverse of mass. Now using this we wish to compute the EE for a state broken into two halves. Thus for small $J$ it's almost a classical state with nearly zero EE since it's a state that can be broken into product state ($\ket{\rightarrow \cdots \rightarrow}$). This is the reason why one is able to construct a free particle state. 
+
+The question now is: The properties of ground state with lot of entanglement, and what kind of excited states they give rise to? 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
