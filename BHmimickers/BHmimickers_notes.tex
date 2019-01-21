@@ -1,0 +1,52 @@
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm, mathtools}
+%\usepackage{hyperref}
+\usepackage{color}
+\usepackage{jheppub}
+\usepackage[T1]{fontenc} % if needed
+
+% My Documents
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bes}{\begin{equation*}}
+\newcommand{\ees}{\end{equation*}}
+\newcommand{\bea}{\begin{flalign*}}
+\newcommand{\eea}{\end{flalign*}}
+
+
+%\linespread{1.0}
+%\setlength{\parindent}{0em}
+%\setlength{\parskip}{0.8em}
+
+\title{\textbf{Notes for BH Mimickers Project}}
+\author{Aditya Vijaykumar}
+\affiliation{International Centre for Theoretical Sciences, Bengaluru, India.}
+\emailAdd{aditya.vijaykumar@icts.res.in}
+
+\begin{document}
+\maketitle
+
+The basic aim is to ascertain whether the GWs detected by LIGO were really due to the coalescence of binary black holes. Put another way - we want to assume some simple models of these alternative objects, and constrain what the parameters of these models might be.
+
+\section{Reviews}
+
+\subsection{Notes on arXiv:1804.08026 - Constraining black hole mimickers with gravitational wave observations}
+
+\begin{itemize}
+	\item A commonly considered alternative to Black Holes are Boson Stars (hereforth abbreviated as BS; no pun intended). BS are solutions of Einstein equations with the matter term containing a complex scalar field coupled to the metric. One can write the Einstein-Hilbert action describing the BS as follows,
+	\begin{equation*}
+	S = \int \dd^4{x} \sqrt{-g}\qty[R - \dfrac{1}{2} \qty(g^{ab} \partial_a \phi \partial_b \phi   + V(\abs{\phi}^2))]
+	\end{equation*}
+	The scalar field gives the BS energy to gravitate. It is not exactly very straightforward why the BS should be stable, and what should balance the gravitation. The bottom line, though, is that one can think of scenarios where BS might be stable against gravitational collapse. \textit{Living Reviews in Relativity} has what seems like a good summary of BS. \footnote{\text{https://link.springer.com/article/10.1007\%2Fs41114-017-0007-y}} \textit{Gravastars} are another proposed model for such compact objects.
+	
+	\item One is not sure about what electromagnetic signatures such models can have, but one can have hope of detecting (or not detecting) these objects through Gravitational Waves. Such non-BH models will have tidal deformation due to the companion object, as well as deformations due to their own spin. These deformations would change the gravity around these objects, and hence the gravitational waves that are emitted from them. We can hope of detecting these deviations from Black Holes in the inspiral waveform.
+	
+	We choose the inspiral because we think we understand the PN expansion very well. We essentially cut off our analysis before PN starts losing significance. One can't deal with the merger phase very well as full numerical simulations of these models are still at a very nascent stage. \textcolor{red}{But can one deal with such objects in perturbation theory and obtain ringdown modes for such models?} \footnote{https://journals.aps.org/prd/pdf/10.1103/PhysRevD.50.6235}
+\end{itemize}
+\end{document}
